@@ -9,7 +9,7 @@
 		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
 		<title>Butter Game</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="${assetPath(src: 'favicon.png')}" type="image/x-ico">
+		<link rel="shortcut icon" href="${assetPath(src: 'favicon.png')}" type="image/x-ico" style="background-color:black;">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
   		<asset:stylesheet src="application.css"/>
@@ -21,25 +21,20 @@
 		 <nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">ButterGame</a>
+		      <a class="navbar-brand" href="#" >Butter Game</a>
 		    </div>
-		    <div>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><g:link uri="/">Home</g:link></li>
-		        <li class="active"><g:link controller="Question">ABM Prguntas</g:link></li>
-		        <li><g:link controller="Stats">Estadisticas</g:link></li>
-		        <li><g:link controller="User">ABM Usuarios</g:link></li>
-		        <li><g:link controller="DisplayQuestion">Juego</g:link></li>
-		      </ul>
-		    </div>
+		    
 		  </div>
 		</nav>
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="container text-center">
+		<div class="row" style="background-color: transparent;">
+			  <div class="col-sm-12">
+			 	<div class="container text-center">
 					<g:layoutBody/>
 					<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 				</div>
+			  </div>
 			</div>
-		</div>
+			 
+			
+		
 	</body>

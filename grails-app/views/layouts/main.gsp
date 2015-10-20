@@ -21,14 +21,10 @@
 		 <nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#" >Butter Game</a>
+		      <a class="navbar-brand" href="${createLink(uri: '/')}" >Butter Game</a>
 		    </div>
 		    <div>
 		      <ul class="nav navbar-nav navbar-right">
-		        <li class="active"><g:link uri="/">Home</g:link></li>
-		        <li><g:link controller="Question">ABM Prguntas</g:link></li>
-		        <li><g:link controller="Stats">Estadisticas</g:link></li>
-		        <li><g:link controller="User">ABM Usuarios</g:link></li>
 		        <li><g:link controller="DisplayQuestion">Juego</g:link></li>
 		        <li><g:link controller="User" action="logOut">Log out</g:link></li>
 		        
@@ -37,12 +33,44 @@
 		  </div>
 		</nav>
 		<div class="row" style="background-color: transparent;">
-			 
-			<div class="col-md-8 col-md-offset-2">
-				<div class="container text-center">
+			  <div class="col-sm-3">
+			    <div class="sidebar-nav" >
+			      <div class="navbar navbar-default" role="navigation">
+			        <div class="navbar-header">
+			          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+			          <span class="visible-xs navbar-brand">Sidebar menu</span>
+			        </div>
+			        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+			          <ul class="nav navbar-nav">
+			            <li><g:link controller="Question">Ver Prguntas</g:link></li>
+			            <li><g:link controller="User">Ver Usuarios</g:link></li>
+				        <li><g:link controller="Stats">Estadisticas</g:link></li>
+				        <li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crear <b class="caret"></b></a>
+			              <ul class="dropdown-menu">
+			                <li><g:link controller="Question" action="create">Crear Pregunta</g:link></li>
+			                <li><g:link controller="User" action="create">Crear Usuario</g:link></li>
+			              </ul>
+			            </li>
+			            
+			          </ul>
+			        </div><!--/.nav-collapse -->
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-sm-9">
+			    <div class="container text-center">
 					<g:layoutBody/>
 					<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 				</div>
+			  </div>
 			</div>
-		</div>
+			 
+			
+		
 	</body>
