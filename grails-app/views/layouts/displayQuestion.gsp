@@ -25,12 +25,7 @@
 		    </div>
 		    <div>
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><g:link uri="/">Home</g:link></li>
-		        <li><g:link controller="Question">ABM Prguntas</g:link></li>
-		        <li><g:link controller="User">ABM Usuarios</g:link></li>
-		        <li><g:link controller="Stats">Estadisticas</g:link></li>
-		        
-		        <li  class="active"><g:link controller="DisplayQuestion">Juego</g:link></li>
+		        <li><g:link controller="User" action="logOut">Log out</g:link></li>
 		      </ul>
 		    </div>
 		  </div>
@@ -39,6 +34,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="container text-center">
 					<g:layoutBody/>
+					<a class="btn btn-warning btn-lg pull-right" href="${createLink(uri: '/')}" >Abandonar Partida</a>
 					<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 				</div>
 			</div>

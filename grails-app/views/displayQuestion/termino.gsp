@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="displayQuestion">
+		<meta name="layout" content="main">
 		<title>End Game</title>
 		
 	</head>

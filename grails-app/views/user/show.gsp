@@ -12,12 +12,14 @@
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
 		    		<p style="text-align:left;float:left;"><g:link action="index"><asset:image src="volver.png" height="55"/></g:link>
-					<h1>Ver User</h1>
+					<h1>Ver Usuario</h1>
 				</div>
 				<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 				</g:if>
-			
+				<div class="panel-body">
+					<asset:image src="minion-show.jpg" alt="Butter Game" height="300"/>
+					
 			
 				<g:if test="${userInstance?.userName}">
 				<h2 class="fieldcontain">
@@ -27,7 +29,7 @@
 					
 				</h2>
 				</g:if>
-				<ol class="property-list user">
+				<ul class="property-list user">
 			
 					<g:if test="${userInstance?.fullName}">
 					<li class="fieldcontain">
@@ -65,13 +67,14 @@
 					</li>
 					</g:if>
 			
-				</ol>
-				<g:form url="[resource:userInstance, action:'delete']" method="DELETE">
-					<fieldset class="buttons">
-						<a href="${createLink(action: 'edit',id:"${userInstance.id}")}" class="btn btn-link" role="button">Editar</a>
-						<button type="submit" class="btn btn-danger btn-md" onclick="return confirm('${message(code: '¿Está seguro?', default: '¿Está seguro?')}');">Eliminar</button>
-					</fieldset>
-				</g:form>
+					</ul>
+					<g:form url="[resource:userInstance, action:'delete']" method="DELETE">
+						<fieldset class="buttons">
+							<a href="${createLink(action: 'edit',id:"${userInstance.id}")}" class="btn btn-link" role="button">Editar</a>
+							<button type="submit" class="btn btn-danger btn-md" onclick="return confirm('${message(code: '¿Está seguro?', default: '¿Está seguro?')}');">Eliminar</button>
+						</fieldset>
+					</g:form>
+				</div>
 			</div>
 		</div>
 	</body>

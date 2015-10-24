@@ -25,45 +25,53 @@
 		    </div>
 		    <div>
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><g:link controller="DisplayQuestion">Juego</g:link></li>
+		      <g:if test="${request.getSession(false)?.user}"> 
 		        <li><g:link controller="User" action="logOut">Log out</g:link></li>
+		       </g:if>
 		        
 		      </ul>
 		    </div>
 		  </div>
 		</nav>
 		<div class="row" style="background-color: transparent;">
-			  <div class="col-sm-3">
-			    <div class="sidebar-nav" >
-			      <div class="navbar navbar-default" role="navigation">
-			        <div class="navbar-header">
-			          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-			            <span class="sr-only">Toggle navigation</span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			          </button>
-			          <span class="visible-xs navbar-brand">Sidebar menu</span>
-			        </div>
-			        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-			          <ul class="nav navbar-nav">
-			            <li><g:link controller="Question">Ver Prguntas</g:link></li>
-			            <li><g:link controller="User">Ver Usuarios</g:link></li>
-				        <li><g:link controller="Stats">Estadisticas</g:link></li>
-				        <li class="dropdown">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crear <b class="caret"></b></a>
-			              <ul class="dropdown-menu">
-			                <li><g:link controller="Question" action="create">Crear Pregunta</g:link></li>
-			                <li><g:link controller="User" action="create">Crear Usuario</g:link></li>
-			              </ul>
-			            </li>
-			            
-			          </ul>
-			        </div><!--/.nav-collapse -->
-			      </div>
-			    </div>
-			  </div>
+			<g:if test="${request.getSession(false)?.user}"> 
+				<div class="col-sm-3">
+			  	  <div class="sidebar-nav" >
+			 	     <div class="navbar navbar-default" role="navigation">
+			 	       <div class="navbar-header">
+				          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				          </button>
+				          <span class="visible-xs navbar-brand">Sidebar menu</span>
+				        </div>
+				        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+				          <ul class="nav navbar-nav">
+				            <li><g:link controller="Question">Ver Prguntas</g:link></li>
+				            <li><g:link controller="User">Ver Usuarios</g:link></li>
+					        <li><g:link controller="Stats">Estadisticas</g:link></li>
+					        <li class="dropdown">
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crear <b class="caret"></b></a>
+				              <ul class="dropdown-menu">
+				                <li><g:link controller="Question" action="create">Crear Pregunta</g:link></li>
+				                <li><g:link controller="User" action="create">Crear Usuario</g:link></li>
+				              </ul>
+				            </li>
+				            
+				          </ul>
+				        </div><!--/.nav-collapse -->
+				      </div>
+				    </div>
+				  </div>
+			</g:if>
+			<g:if test="${request.getSession(false)?.user}"> 
 			  <div class="col-sm-9">
+			</g:if>
+			<g:if test="${request.getSession(true)?.user}"> 
+			  <div class="col-sm-12">
+			</g:if>
 			    <div class="container text-center">
 					<g:layoutBody/>
 					<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
