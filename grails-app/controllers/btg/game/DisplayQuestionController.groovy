@@ -125,9 +125,14 @@ class DisplayQuestionController {
 			currentGame1.result = true
 		}
 		
+		//ASIGNO FECHA AL GAME
+		java.util.Date fechaAux = new Date();
+		currentGame1.fecha = fechaAux
+		
+		
 		//GUARDO EL JUEGO CON PUNTERO EN EL USUARIO
 		currentGame1.user = session.user
-		currentGame1.save flush:true
+		currentGame1.save(flush:true, insert:true)
 		
 		//ASIGNO PUNTAJE TOTAL
 		def currentUser1 = User.findByUserName(session.user.userName)

@@ -34,17 +34,20 @@
 							<table class="table table-hover table-bordered">
 								<thead>
 									<tr>
-								
-										<g:sortableColumn property="Puntaje" title="${message(code: 'question.answer1.label', default: 'score')}" />
 									
-										<g:sortableColumn property="result" title="${message(code: 'question.answer2.label', default: 'result')}" />
+										<g:sortableColumn property="Fecha" title="${message(code: 'question.answer1.label', default: 'Fecha')}" />
+								
+										<g:sortableColumn property="Puntaje" title="${message(code: 'question.answer1.label', default: 'Puntaje')}" />
+									
+										<g:sortableColumn property="result" title="${message(code: 'question.answer1.label', default: 'Resultado')}" />
 								
 									</tr>
 								</thead>
 								<tbody>
 									<g:each in="${currentGameInstanceList1}" status="i" var="currentGameInstance1">
 										<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-										
+											<td><g:formatDate format="yyyy-MM-dd HH:mm:ss" date="${currentGameInstance1.fecha}"/></td>
+											
 											<td>${fieldValue(bean: currentGameInstance1, field: "score")}</td>
 										
 											<td>${fieldValue(bean: currentGameInstance1, field: "result")}</td>
@@ -66,17 +69,15 @@
 							<table class="table table-hover table-bordered">
 								<thead>
 									<tr>
-										<g:sortableColumn property="Usuario" title="${message(code: 'question.answer1.label', default: 'usuario')}" />
-										<g:sortableColumn property="Puntaje" title="${message(code: 'question.answer1.label', default: 'score')}" />
-										<g:sortableColumn property="result" title="${message(code: 'question.answer2.label', default: 'result')}" />
+										<g:sortableColumn property="Usuario" title="${message(code: 'question.answer1.label', default: 'Usuario')}" />
+										<g:sortableColumn property="Puntaje" title="${message(code: 'question.answer1.label', default: 'Puntaje Total')}" />
 									</tr>
 								</thead>
 								<tbody>
 									<g:each in="${currentGameInstanceList2}" status="i" var="currentGameInstance2">
 										<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-											<td>${fieldValue(bean: currentGameInstance2, field: "user.userName")}</td>
-											<td>${fieldValue(bean: currentGameInstance2, field: "score")}</td>
-											<td>${fieldValue(bean: currentGameInstance2, field: "result")}</td>
+											<td>${fieldValue(bean: currentGameInstance2, field: "userName")}</td>
+											<td>${fieldValue(bean: currentGameInstance2, field: "totalScore")}</td>
 										</tr>
 									</g:each>
 								</tbody>

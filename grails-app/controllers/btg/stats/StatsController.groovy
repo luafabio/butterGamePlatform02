@@ -10,7 +10,7 @@ class StatsController {
     def index() {
 		
 		def games = CurrentGame.findAllWhere(user: session.user)
-		def topScores = CurrentGame.findAll()
+		def topScores = User.listOrderByTotalScore(max: 10, order: "desc")
 		def currentUser1 = User.findByUserName(session.user.userName)
 		def cntGames = games.size()
 		
