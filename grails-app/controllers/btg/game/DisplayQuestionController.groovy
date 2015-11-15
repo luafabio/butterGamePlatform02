@@ -55,6 +55,12 @@ class DisplayQuestionController {
 		[gameInstance: currentGame1]
 	}
 	
+	def denuncia(){
+		def actualPregunta = Question.findById(currentQuestion1.id)
+		actualPregunta.report = actualPregunta.report + 1
+		actualPregunta.save flush:true
+	}
+	
 	def renderQuestion(questionAux){
 		render( view: "nextQuestion", model: [questionInstance: questionAux, gameInstance: currentGame1]) 		//renderiza una pregunta
 		

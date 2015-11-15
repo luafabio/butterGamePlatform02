@@ -49,17 +49,12 @@
 				        </div>
 				        <div class="navbar-collapse collapse sidebar-navbar-collapse">
 				          <ul class="nav navbar-nav">
-				            <li><g:link controller="Question">Ver Prguntas</g:link></li>
-				            <li><g:link controller="User">Ver Usuarios</g:link></li>
-					        <li><g:link controller="Stats">Estadisticas</g:link></li>
-					        <li class="dropdown">
-				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Crear <b class="caret"></b></a>
-				              <ul class="dropdown-menu">
-				                <li><g:link controller="Question" action="create">Crear Pregunta</g:link></li>
-				                <li><g:link controller="User" action="create">Crear Usuario</g:link></li>
-				              </ul>
-				            </li>
-				            
+				            <g:if test="${session.user.root}" ><li><g:link controller="Question">Ver Prguntas</g:link></li></g:if>
+				            <g:if test="${session.user.root}" ><li><g:link controller="User">Ver Usuarios</g:link></li></g:if>
+				            <g:if test="${session.user.root}" ><li><g:link controller="User" action="create">Create Admin User</g:link></li></g:if>
+				            <li><g:link controller="Question" action="create">Nueva Pregunta</g:link></li>
+				            <li><g:link controller="Stats">Estadisticas</g:link></li>
+				            <li><g:link controller="DisplayQuestion">Jugar</g:link></li>
 				          </ul>
 				        </div><!--/.nav-collapse -->
 				      </div>
