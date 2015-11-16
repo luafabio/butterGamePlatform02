@@ -43,17 +43,19 @@ class UserController {
             return
         }		
 		
-		if (!userInstance.confirmPassword.equals(userInstance.password)){
-			flash.message = "Las contrasenas ingresadas no coinciden"
-			userInstance.password = ""
-			userInstance.confirmPassword = ""
-			respond userInstance, view:'create'
-			return
-		}
+//		if (!userInstance.confirmPassword.equals(userInstance.password)){
+//			flash.message = "Las contrasenas ingresadas no coinciden"
+//			userInstance.password = ""
+//			userInstance.confirmPassword = ""
+//			respond userInstance, view:'create'
+//			return
+//		}
+//		
+//		userInstance.confirmPassword = ""
 		
-		userInstance.confirmPassword = ""
-        userInstance.save flush:true
-
+		userInstance.save flush:true
+		
+		
         request.withFormat {
             form multipartForm {
                 //flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
