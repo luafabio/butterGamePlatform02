@@ -52,13 +52,17 @@ class DisplayQuestionController {
 	}
 	
 	def termino() {
+		
 		[gameInstance: currentGame1]
 	}
 	
 	def denuncia(){
+		
 		def actualPregunta = Question.findById(currentQuestion1.id)
 		actualPregunta.report = actualPregunta.report + 1
 		actualPregunta.save flush:true
+		
+		nextQuestion()
 	}
 	
 	def renderQuestion(questionAux){
@@ -97,6 +101,7 @@ class DisplayQuestionController {
 	
 	def randomizeQuestion(question){
 		
+		currentQuestion1.id = question.id
 		currentQuestion1.question = question.question				//Set current question
 		currentQuestion1.correctAns = question.answer1				//Set correct answer
 		
@@ -125,6 +130,12 @@ class DisplayQuestionController {
 			currentGame1.result = true
 		}
 		
+		
+		//ASIGNO PUNTAJE TOTAL
+		def currentUser1 = User.findByUserName(session.user.userName)
+		currentUser1.totalScore = currentUser1.totalScore + currentGame1.score
+		currentUser1.save(flush:true, insert:true)
+		
 		//ASIGNO FECHA AL GAME
 		java.util.Date fechaAux = new Date();
 		currentGame1.fecha = fechaAux
@@ -134,10 +145,7 @@ class DisplayQuestionController {
 		currentGame1.user = session.user
 		currentGame1.save(flush:true, insert:true)
 		
-		//ASIGNO PUNTAJE TOTAL
-		def currentUser1 = User.findByUserName(session.user.userName)
-		currentUser1.totalScore = currentUser1.totalScore + currentGame1.score
-		currentUser1.save flush:true
+		
 		
 	}
 }

@@ -36,7 +36,7 @@
 									<input type="radio" name="rating" value="5"><i></i>
 								</span>
 							</div>
-							<a class="btn btn-danger" href="#" style="margin-top:15%;">Denunciar</a>
+							<a href="${createLink(action: 'denuncia')}"class="btn btn-danger" style="margin-top:15%;">Denunciar</a>
 						</div>
 					</div>
 					<a href="${createLink(action: 'nextQuestion')}" class="btn btn-link btn-lg" role="button" style="margin-top:5px;">Siguiente pregunta</a>

@@ -29,6 +29,7 @@
 		  </div>
 		  <a href="<g:createLink controller="DisplayQuestion"/>" class="btn btn-primary btn-lg" role="button">Jugar</a>
 		  
+		  
 		
 		
 		

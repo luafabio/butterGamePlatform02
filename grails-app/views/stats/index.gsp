@@ -35,6 +35,8 @@
 								<thead>
 									<tr>
 									
+										<g:sortableColumn property="ID" title="${message(code: 'question.answer1.label', default: 'ID')}" />
+									
 										<g:sortableColumn property="Fecha" title="${message(code: 'question.answer1.label', default: 'Fecha')}" />
 								
 										<g:sortableColumn property="Puntaje" title="${message(code: 'question.answer1.label', default: 'Puntaje')}" />
@@ -46,6 +48,9 @@
 								<tbody>
 									<g:each in="${currentGameInstanceList1}" status="i" var="currentGameInstance1">
 										<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+											
+											<td>${fieldValue(bean: currentGameInstance1, field: "id")}</td>
+											
 											<td><g:formatDate format="yyyy-MM-dd HH:mm:ss" date="${currentGameInstance1.fecha}"/></td>
 											
 											<td>${fieldValue(bean: currentGameInstance1, field: "score")}</td>

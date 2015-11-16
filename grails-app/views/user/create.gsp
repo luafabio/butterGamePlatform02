@@ -9,7 +9,7 @@
 		<div class="panel-group">
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
-		    		<p style="text-align:left;float:left;"><g:link action="index"><asset:image src="volver.png" height="55"/></g:link>
+		    		<p style="text-align:left;float:left;"><g:link action="home"><asset:image src="volver.png" height="55"/></g:link>
 		    		<h1> Crear Usuario</h1>
 		     	</div>
 				<g:if test="${flash.message}">

@@ -25,6 +25,7 @@
 		    </div>
 		    <div>
 		      <ul class="nav navbar-nav navbar-right">
+		      	<li><a class="navbar-brand" >${session.user.userName}</a></li>
 		        <li><g:link controller="User" action="logOut">Log out</g:link></li>
 		      </ul>
 		    </div>

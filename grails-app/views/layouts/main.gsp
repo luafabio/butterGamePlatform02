@@ -26,6 +26,7 @@
 		    <div>
 		      <ul class="nav navbar-nav navbar-right">
 		      <g:if test="${request.getSession(false)?.user}"> 
+		      	<li><a class="navbar-brand" >${session.user.userName}</a></li>
 		        <li><g:link controller="User" action="logOut">Log out</g:link></li>
 		       </g:if>
 		        
@@ -49,7 +50,7 @@
 				        </div>
 				        <div class="navbar-collapse collapse sidebar-navbar-collapse">
 				          <ul class="nav navbar-nav">
-				            <g:if test="${session.user.root}" ><li><g:link controller="Question">Ver Prguntas</g:link></li></g:if>
+				            <g:if test="${session.user.root}" ><li><g:link controller="Question">Ver Preguntas</g:link></li></g:if>
 				            <g:if test="${session.user.root}" ><li><g:link controller="User">Ver Usuarios</g:link></li></g:if>
 				            <g:if test="${session.user.root}" ><li><g:link controller="User" action="create">Create Admin User</g:link></li></g:if>
 				            <li><g:link controller="Question" action="create">Nueva Pregunta</g:link></li>
