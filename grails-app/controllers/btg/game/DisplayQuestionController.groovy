@@ -80,7 +80,7 @@ class DisplayQuestionController {
 			currentQuestion1.statusQues = "false"
 		}
 			
-		render( view: "resultQuestion", model: [currentInstance: currentQuestion1])	//renderiza el resultado de la pregunta
+		render( view: "resultQuestion", model: [currentInstance: currentQuestion1, gameInstance: currentGame1])	//renderiza el resultado de la pregunta
 		
 	}
 	
@@ -134,7 +134,7 @@ class DisplayQuestionController {
 		//ASIGNO PUNTAJE TOTAL
 		def currentUser1 = User.findByUserName(session.user.userName)
 		currentUser1.totalScore = currentUser1.totalScore + currentGame1.score
-		currentUser1.save(flush:true, insert:true)
+		currentUser1.save(flush:true)
 		
 		//ASIGNO FECHA AL GAME
 		java.util.Date fechaAux = new Date();

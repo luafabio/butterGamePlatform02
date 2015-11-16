@@ -39,7 +39,16 @@
 							<a href="${createLink(action: 'denuncia')}"class="btn btn-danger" style="margin-top:15%;">Denunciar</a>
 						</div>
 					</div>
-					<a href="${createLink(action: 'nextQuestion')}" class="btn btn-link btn-lg" role="button" style="margin-top:5px;">Siguiente pregunta</a>
+					<g:if test="${currentInstance.statusQues =='false'}">
+						<h1>La pregunta correcta es: ${currentInstance.correctAns}</h1>
+					</g:if>
+					
+					<g:if test="${gameInstance.numQuestion == 5}">
+						<a href="${createLink(action: 'nextQuestion')}" class="btn btn-primary btn-lg" role="button" style="margin-top:5px;">Puntaje final</a>
+					</g:if>
+					<g:if test="${gameInstance.numQuestion < 5}">
+						<a href="${createLink(action: 'nextQuestion')}" class="btn btn-primary btn-lg" role="button" style="margin-top:5px;">Siguiente pregunta</a>
+					</g:if>
 				</div>
 			</div>
 		</div>
