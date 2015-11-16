@@ -1,12 +1,15 @@
 package btg.stats
 
+
 import btg.person.CurrentGame;
 import btg.person.User;
 import btg.game.CurrentQuestion;
 import btg.game.Question;
 
 class StatsController {
-
+	
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
     def index() {
 		
 		def games = CurrentGame.findAllWhere(user: session.user)

@@ -32,6 +32,8 @@ class DisplayQuestionController {
 		currentGame1.score = 0
 		allQuestion = Question.findAll()
 		Collections.shuffle(allQuestion)
+		
+
 	}
 	
 	
@@ -134,7 +136,7 @@ class DisplayQuestionController {
 		//ASIGNO PUNTAJE TOTAL
 		def currentUser1 = User.findByUserName(session.user.userName)
 		currentUser1.totalScore = currentUser1.totalScore + currentGame1.score
-		currentUser1.save(flush:true)
+		currentUser1.save(flush:true, validate:false)
 		
 		//ASIGNO FECHA AL GAME
 		java.util.Date fechaAux = new Date();
