@@ -55,6 +55,7 @@
 				            <g:if test="${session.user.root}" ><li><g:link controller="User" action="create">Create Admin User</g:link></li></g:if>
 				            <li><g:link controller="Question" action="create">Nueva Pregunta</g:link></li>
 				            <li><g:link controller="Stats">Estadisticas</g:link></li>
+				            <li><g:link controller="User" action="modify">Modificar contraseña</g:link></li>
 				            <li><g:link controller="DisplayQuestion">Jugar</g:link></li>
 				          </ul>
 				        </div><!--/.nav-collapse -->

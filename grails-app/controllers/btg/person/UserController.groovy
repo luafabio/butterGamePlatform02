@@ -69,6 +69,20 @@ class UserController {
         respond userInstance
     }
 
+	def modify = {}
+	
+	def submitModification(UserModify modifyInstance){
+		if (session.user.password.equals(modifyInstance.oldPassword)) {
+			if(modifyInstance.newPassword.equals(modifyInstance.confirmPassword)){
+				def currentUser = User.findByUserName(session.user.userName)
+				currentUser.password = modifyInstance.newPassword
+				currentUser.save(flush:true, validate:false)
+				logOut()
+				
+			}
+		}
+	}
+	
     @Transactional
     def update(User userInstance) {
         if (userInstance == null) {
@@ -90,6 +104,7 @@ class UserController {
             }
             '*'{ respond userInstance, [status: OK] }
         }
+		
     }
 
     @Transactional
