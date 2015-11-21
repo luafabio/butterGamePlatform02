@@ -6,17 +6,15 @@
 		<meta name="layout" content="displayQuestion">
 		<g:set var="entityName" value="${message(code: 'question.label', default: 'Question')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-		<script type="text/javascript">
-			function Mostrar(boton){
-				console.log('Ha hecho click')
-			}
-   		</script>
+
 	</head>
 	<body>
 		<div class="panel-group">
+				
 			    <div class="panel panel-default">
 			    	<div class="panel-heading">
 						<h1>pregunta ${questionInstance.numQuestion }</h1>
+						<h1>existo!</h1>
 					</div>
 					<g:if test="${flash.message}">
 						<div class="message" role="status">${flash.message}</div>

@@ -6,12 +6,12 @@
 		<meta name="layout" content="displayQuestion">
 		<g:set var="entityName" value="${message(code: 'question.label', default: 'Question')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-		
 	</head>
 	<body>
 		<div class="panel-group">
 			    <div class="panel panel-default">
 			    	<div class="panel-heading">
+			    		<h1 id="miContador">10</h1>	
 						<h1>Pregunta ${gameInstance.numQuestion }</h1>
 					</div>
 					<g:if test="${flash.message}">
@@ -24,9 +24,6 @@
 							<h2 style=" color:rgb(51, 122, 183);"><g:fieldValue bean="${questionInstance}" field="question"/></h2>
 							
 						</g:if>
-						
-						
-						
 						<div class="list-group ">
 							<g:if test="${questionInstance?.answer1}">
 							  <a href="<g:createLink action="isCorrectAnswerA" id="${questionInstance.id}"/>" class="list-group-item"><g:fieldValue bean="${questionInstance}" field="answer1"/></a>
@@ -71,15 +68,30 @@
 						  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
 						    ${gameInstance.numQuestion }/5
 						  </div> 
-						</g:if>
-					
-					  
-						  
-				    
+						</g:if>    
 					  </div>
 					
 				</div>
 			</div>
 		</div>
-		
+		<script type="text/javascript">
+			var i = 10
+			function miTimer(){
+				setTimeout(
+					function(){
+						$('#miContador').text(i)
+						i --
+						if (i>0) 
+							miTimer()
+						else 
+							otroTimer()
+					}, 1000
+				)
+			}
+			miTimer()
+			
+			function otroTimer(){
+				location.replace(location.href.replace('index','isTimeOut'))
+			}
+   		</script>
 </html>

@@ -26,15 +26,13 @@
 							</g:if>
 						</div>
 						<div class="col-sm-4">
-							<h3 >Calificar pregunta</h3>
+							<h3 >Calificar pregunta:</h3>
 							<div class="row">
-								<span class="star-rating" style="margin-top:10%;">
-									<input type="radio" name="rating" value="1"><i></i>
-									<input type="radio" name="rating" value="2"><i></i>
-									<input type="radio" name="rating" value="3"><i></i>
-									<input type="radio" name="rating" value="4"><i></i>
-									<input type="radio" name="rating" value="5"><i></i>
-								</span>
+									<a id="1" class="btn btn-primary" href="${createLink(action: 'scoreOne')}">1</a>
+									<a id="2" class="btn btn-primary" href="${createLink(action: 'scoreTwo')}">2</a>
+									<a id="3" class="btn btn-primary" href="${createLink(action: 'scoreThree')}">3</a>
+									<a id="4" class="btn btn-primary" href="${createLink(action: 'scoreFour')}">4</a>
+									
 							</div>
 							<a href="${createLink(action: 'denuncia')}"class="btn btn-danger" style="margin-top:15%;">Denunciar</a>
 						</div>
@@ -53,11 +51,12 @@
 			</div>
 		</div>
 		<script>
-		$(':radio').change(
-				  function(){
-				    $('.h3').text( this.value + ' stars' );
-				  } 
-				)
+		$('#radio').change(
+		  function(){
+		    $('.h3').text( this.value + ' stars' );
+		  } 
+		)
+		
 		</script>
 	</body>
 </html>

@@ -23,6 +23,7 @@
 					<h2>email: ${fieldValue(bean: profileInstance, field: "email")}</h2>
 					<h2>Puntaje Total: ${fieldValue(bean: profileInstance, field: "totalScore")}</h2>
 					<h2>Cantidad de partidas: ${cantidadInstance}</h2>
+					<h2>Promedio: ${eficienciaInstance} puntos</h2>
 					
 					<button style="margin-bottom: 10px;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#ultimasPartidas">Ultimas Partidas</button>
 					<div id="ultimasPartidas" class="collapse">

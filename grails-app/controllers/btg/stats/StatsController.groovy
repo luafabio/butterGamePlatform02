@@ -16,7 +16,8 @@ class StatsController {
 		def topScores = User.listOrderByTotalScore(max: 10, order: "desc")
 		def currentUser1 = User.findByUserName(session.user.userName)
 		def cntGames = games.size()
-		
-		[profileInstance: currentUser1, cantidadInstance: cntGames, currentGameInstanceList1: games, currentGameInstanceList2:topScores]
+		def tScore = currentUser1.totalScore
+		def pEfic = (tScore == 0) ? 0: (tScore/cntGames)
+		[profileInstance: currentUser1, cantidadInstance: cntGames, eficienciaInstance: pEfic, currentGameInstanceList1: games, currentGameInstanceList2:topScores]
 	}
 }

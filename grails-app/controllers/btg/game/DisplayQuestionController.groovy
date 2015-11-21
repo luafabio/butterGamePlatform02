@@ -35,8 +35,7 @@ class DisplayQuestionController {
 		
 
 	}
-	
-	
+
 	def nextQuestion(){
 		renderQuestion(getQuestion())
 	}
@@ -84,6 +83,12 @@ class DisplayQuestionController {
 			
 		render( view: "resultQuestion", model: [currentInstance: currentQuestion1, gameInstance: currentGame1])	//renderiza el resultado de la pregunta
 		
+	}
+	
+	def isTimeOut(){
+		
+		currentQuestion1.statusQues = "false"
+		render( view: "resultQuestion", model: [currentInstance: currentQuestion1, gameInstance: currentGame1])
 	}
 	
 	def isCorrectAnswerA(){
