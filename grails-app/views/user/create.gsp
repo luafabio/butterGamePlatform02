@@ -41,7 +41,6 @@
 								<input style="margin-top: 10px;" type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  required>
 								<label for="confirmPassword" class="sr-only">Confirmar Contraseña</label>
 								<input style="margin-top: 10px;" type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword"  required>
-				
 								<fieldset class="buttons" style="margin-top: 10px;">
 									<button type="submit" class="btn btn-lg btn-primary btn-md">Crear Usuario</button>
 								</fieldset>

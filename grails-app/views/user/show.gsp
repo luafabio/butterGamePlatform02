@@ -71,7 +71,7 @@
 					<g:form url="[resource:userInstance, action:'delete']" method="DELETE">
 						<fieldset class="buttons">
 							<a href="${createLink(action: 'edit',id:"${userInstance.id}")}" class="btn btn-link" role="button">Editar</a>
-							<button type="submit" class="btn btn-danger btn-md" onclick="return confirm('${message(code: '¿Está seguro?', default: '¿Está seguro?')}');">Eliminar</button>
+							<button type="submit" class="btn btn-danger btn-md" onclick="return confirm('${message(code: '¿Está seguro?', default: '¿Está seguro?')}');">Eliminar Pregunta</button>
 						</fieldset>
 					</g:form>
 				</div>

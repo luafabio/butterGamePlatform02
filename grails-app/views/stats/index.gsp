@@ -56,7 +56,12 @@
 											
 											<td>${fieldValue(bean: currentGameInstance1, field: "score")}</td>
 										
-											<td>${fieldValue(bean: currentGameInstance1, field: "result")}</td>
+											<g:if test="${currentGameInstance1.result == true}">
+											     <td>Victoria</td>
+											</g:if>
+											<g:if test="${currentGameInstance1.result == false}">
+											     <td>Derrota</td>
+											</g:if>
 										
 										
 										</tr>
@@ -75,6 +80,7 @@
 							<table class="table table-hover table-bordered">
 								<thead>
 									<tr>
+										<g:sortableColumn property="Ranking" title="${message(code: 'question.answer1.label', default: 'Ranking')}" />
 										<g:sortableColumn property="Usuario" title="${message(code: 'question.answer1.label', default: 'Usuario')}" />
 										<g:sortableColumn property="Puntaje" title="${message(code: 'question.answer1.label', default: 'Puntaje Total')}" />
 									</tr>
@@ -82,6 +88,7 @@
 								<tbody>
 									<g:each in="${currentGameInstanceList2}" status="i" var="currentGameInstance2">
 										<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+											<td>${i+1}</td>
 											<td>${fieldValue(bean: currentGameInstance2, field: "userName")}</td>
 											<td>${fieldValue(bean: currentGameInstance2, field: "totalScore")}</td>
 										</tr>

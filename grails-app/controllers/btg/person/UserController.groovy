@@ -30,6 +30,7 @@ class UserController {
     def create() {
         respond new User(params)
     }
+	
 
     @Transactional
     def save(User userInstance) {
@@ -41,7 +42,14 @@ class UserController {
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'create'
             return
-        }		
+        }
+		
+		if (session.user != null){
+			if (session.user.root){
+				userInstance.root = true
+				session.invalidate()
+			}
+		}
 		
 //		if (!userInstance.confirmPassword.equals(userInstance.password)){
 //			flash.message = "Las contrasenas ingresadas no coinciden"
@@ -54,7 +62,6 @@ class UserController {
 //		userInstance.confirmPassword = ""
 		
 		userInstance.save flush:true
-		
 		
         request.withFormat {
             form multipartForm {

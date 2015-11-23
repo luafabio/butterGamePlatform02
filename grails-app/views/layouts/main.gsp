@@ -50,7 +50,8 @@
 				        </div>
 				        <div class="navbar-collapse collapse sidebar-navbar-collapse">
 				          <ul class="nav navbar-nav">
-				            <g:if test="${session.user.root}" ><li><g:link controller="Question">Ver Preguntas</g:link></li></g:if>
+				            <g:if test="${session.user.root}" ><li><g:link controller="Tools" action="reportTable">Preguntas mas denunciadas</g:link></li></g:if>
+				            <g:if test="${session.user.root}" ><li><g:link controller="Tools" action="valueTable">Preguntas mejor valoradas</g:link></li></g:if>
 				            <g:if test="${session.user.root}" ><li><g:link controller="User">Ver Usuarios</g:link></li></g:if>
 				            <g:if test="${session.user.root}" ><li><g:link controller="User" action="create">Create Admin User</g:link></li></g:if>
 				            <li><g:link controller="Question" action="create">Nueva Pregunta</g:link></li>

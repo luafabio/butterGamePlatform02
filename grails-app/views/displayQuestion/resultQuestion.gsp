@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					<g:if test="${currentInstance.statusQues =='false'}">
-						<h1>La pregunta correcta es: ${currentInstance.correctAns}</h1>
+						<h1>La respuesta correcta es: ${currentInstance.correctAns}</h1>
 					</g:if>
 					
 					<g:if test="${gameInstance.numQuestion == 5}">

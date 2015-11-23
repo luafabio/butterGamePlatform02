@@ -52,7 +52,7 @@
 					<div class="pagination">
 						<g:paginate total="${userInstanceCount ?: 0}" />
 					</div>
-					<a href="${createLink(action: 'create')}" class="btn btn-primary btn-lg pull-right" role="button">Nuevo Usuario</a>
+<%--					<a href="${createLink(action: 'create')}" class="btn btn-primary btn-lg pull-right" role="button">Nuevo Usuario</a>--%>
 				</div>
 			</div>
 		</div>

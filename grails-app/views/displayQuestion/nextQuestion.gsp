@@ -92,6 +92,7 @@
 			
 			function otroTimer(){
 				location.replace(location.href.replace('index','isTimeOut'))
+				location.replace(location.href.replace('nextQuestion','isTimeOut'))
 			}
    		</script>
 </html>

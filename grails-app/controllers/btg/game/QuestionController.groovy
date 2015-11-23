@@ -58,6 +58,12 @@ class QuestionController {
         respond questionInstance
     }
 
+	def reiniciar(Question questionInstance) {
+		questionInstance.report = 0
+		questionInstance.save flush:true
+		redirect(controller:'user', action:'home')
+	}
+	
     @Transactional
     def update(Question questionInstance) {
         if (questionInstance == null) {

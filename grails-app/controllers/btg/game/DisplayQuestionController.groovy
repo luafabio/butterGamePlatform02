@@ -66,6 +66,30 @@ class DisplayQuestionController {
 		nextQuestion()
 	}
 	
+	def scoreOne() {
+		score(1)
+	}
+	
+	def scoreTwo() {
+		score(2)
+	}
+	
+	def scoreThree() {
+		score(3)
+	}
+	
+	def scoreFour() {
+		score(4)
+	}
+	
+	def score(points) {
+		
+		def actualPregunta1 = Question.findById(currentQuestion1.id)
+		actualPregunta1.quality = actualPregunta1.quality + points
+		actualPregunta1.save flush:true
+		nextQuestion()
+	}
+	
 	def renderQuestion(questionAux){
 		render( view: "nextQuestion", model: [questionInstance: questionAux, gameInstance: currentGame1]) 		//renderiza una pregunta
 		
@@ -135,6 +159,8 @@ class DisplayQuestionController {
 		if (currentGame1.score >= 3){
 			currentGame1.score = currentGame1.score +5
 			currentGame1.result = true
+		} else {
+			currentGame1.result = false
 		}
 		
 		

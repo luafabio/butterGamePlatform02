@@ -11,7 +11,7 @@
 		<div class="panel-group">
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
-		    		<p style="text-align:left;float:left;"><g:link action="index"><asset:image src="volver.png" height="55"/></g:link>
+<%--		    		<p style="text-align:left;float:left;"><g:link action="index"><asset:image src="volver.png" height="55"/></g:link>--%>
 					<h1>Ver Pregunta</h1>
 				</div>
 				<g:if test="${flash.message}">
@@ -65,7 +65,7 @@
 						<fieldset class="buttons">
 							<a href="${createLink(action: 'edit',id:"${questionInstance.id}")}" class="btn btn-link" role="button">Editar</a>
 							<button type="submit" class="btn btn-danger btn-md" onclick="return confirm('${message(code: '¿Está seguro?', default: '¿Está seguro?')}');">Eliminar</button>
-							
+							<a href="${createLink(action: 'reiniciar',id:"${questionInstance.id}")}" class="btn btn-link" role="button">Reiniciar contador</a>
 						</fieldset>
 					</g:form>
 				</div>
