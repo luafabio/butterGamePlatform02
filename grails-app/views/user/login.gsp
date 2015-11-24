@@ -7,7 +7,11 @@
 <body>
 		<div class="form-signin">
 			<g:form action="doLogin" method="post">
+				
 				<h2 class="form-signin-heading">Ingresar a tu cuenta </h2>
+				<g:if test="${flash.message}">
+					<p class=" text-danger" style="font-size:20px">${flash.message}</p>
+				</g:if>
 				<label for="email" class="sr-only">E-mail</label>
 				<input type="email" id="email" name="email" class="form-control" placeholder="Email" value='${user?.email}' required autofocus>
 				<label for="password" class="sr-only">Contraseña</label>

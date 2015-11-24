@@ -16,11 +16,14 @@
 				<div class="message" role="status">${flash.message}</div>
 				</g:if>
 				<g:hasErrors bean="${userInstance}">
-					<ul class="errors" role="alert">
+					<div class="col-lg-12">
 						<g:eachError bean="${userInstance}" var="error">
-							<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+							
+							<p class="bg-danger text-danger" style="margin-top:2%;font-size:20px; padding-top: 1%;
+padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></p>
+							
 						</g:eachError>
-					</ul>
+					</div>
 				</g:hasErrors>
 				<div class="panel-body">
 					<div class="row">
@@ -40,7 +43,7 @@
 								<label for="password" class="sr-only">Contraseña</label>
 								<input style="margin-top: 10px;" type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  required>
 								<label for="confirmPassword" class="sr-only">Confirmar Contraseña</label>
-								<input style="margin-top: 10px;" type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword"  required>
+								<input style="margin-top: 10px;" type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirmar Contraseña"  required>
 								<fieldset class="buttons" style="margin-top: 10px;">
 									<button type="submit" class="btn btn-lg btn-primary btn-md">Crear Usuario</button>
 								</fieldset>

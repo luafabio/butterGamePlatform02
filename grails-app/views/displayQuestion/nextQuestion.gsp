@@ -11,14 +11,16 @@
 		<div class="panel-group">
 			    <div class="panel panel-default">
 			    	<div class="panel-heading">
-			    		<h1 id="miContador">10</h1>	
-						<h1>Pregunta ${gameInstance.numQuestion }</h1>
+			    			
+						<h1>Pregunta ${gameInstance.numQuestion }   <span class="text-right" id="miContador" style="color:red;float:right">10</span></h1>
+						<!-- <h1  class="text-right" id="miContador" style="color:red">10</h1>-->
 					</div>
 					<g:if test="${flash.message}">
 					<div class="message" role="status">${flash.message}</div>
 					</g:if>
 					
 					<div class="panel-body">
+						
 						<g:if test="${questionInstance?.question}">
 							
 							<h2 style=" color:rgb(51, 122, 183);"><g:fieldValue bean="${questionInstance}" field="question"/></h2>
@@ -90,9 +92,12 @@
 			}
 			miTimer()
 			
-			function otroTimer(){
-				location.replace(location.href.replace('index','isTimeOut'))
-				location.replace(location.href.replace('nextQuestion','isTimeOut'))
+			function otroTimer(){ 
+				if (${gameInstance.numQuestion }==1){ 
+					location.replace(location.href.replace('index','isTimeOut')) 
+				}else{ 
+					location.replace(location.href.replace('nextQuestion','isTimeOut')) 
+				} 
 			}
    		</script>
 </html>

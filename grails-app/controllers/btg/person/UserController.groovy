@@ -154,6 +154,7 @@ class UserController {
 		if (user){
 			redirect(action:'home')
 		}else{
+		flash.message = message(code: 'default.login.error' )
 			redirect(action:'login')
 		}
 	}

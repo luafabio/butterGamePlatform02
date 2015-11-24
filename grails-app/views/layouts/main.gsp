@@ -36,7 +36,7 @@
 		</nav>
 		<div class="row" style="background-color: transparent;">
 			<g:if test="${request.getSession(false)?.user}"> 
-				<div class="col-sm-3">
+				<div class="col-sm-3" style="margin-left:2%">
 			  	  <div class="sidebar-nav" >
 			 	     <div class="navbar navbar-default" role="navigation">
 			 	       <div class="navbar-header">
@@ -53,7 +53,7 @@
 				            <g:if test="${session.user.root}" ><li><g:link controller="Tools" action="reportTable">Preguntas mas denunciadas</g:link></li></g:if>
 				            <g:if test="${session.user.root}" ><li><g:link controller="Tools" action="valueTable">Preguntas mejor valoradas</g:link></li></g:if>
 				            <g:if test="${session.user.root}" ><li><g:link controller="User">Ver Usuarios</g:link></li></g:if>
-				            <g:if test="${session.user.root}" ><li><g:link controller="User" action="create">Create Admin User</g:link></li></g:if>
+				            <g:if test="${session.user.root}" ><li><g:link controller="User" action="create">Crear Administrador</g:link></li></g:if>
 				            <li><g:link controller="Question" action="create">Nueva Pregunta</g:link></li>
 				            <li><g:link controller="Stats">Estadisticas</g:link></li>
 				            <li><g:link controller="User" action="modify">Modificar contraseña</g:link></li>
@@ -62,20 +62,20 @@
 				        </div><!--/.nav-collapse -->
 				      </div>
 				    </div>
-				  </div>
+				</div>
+				<div class="col-sm-8 container text-center" style="margin-left:5%">
+					<g:layoutBody/>
+				<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+				</div>
 			</g:if>
-			<g:if test="${request.getSession(false)?.user}"> 
-			  <div class="col-sm-9">
-			</g:if>
-			<g:if test="${request.getSession(true)?.user}"> 
-			  <div class="col-sm-12">
-			</g:if>
-			    <div class="container text-center">
+			<g:else>
+				<div class=" col-sm-offset-1 col-sm-10 container text-center" >
 					<g:layoutBody/>
 					<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 				</div>
-			  </div>
-			</div>
+			</g:else>
+		  </div>
+		
 			 
 			
 		
