@@ -9,7 +9,6 @@ DOCTYPE html>
 		<div class="panel-group">
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
-		    		<p style="text-align:left;float:left;"><g:link action="home"><asset:image src="volver.png" height="55"/></g:link>
 		    		<h1> Modificar contraseña</h1>
 		     	</div>
 				<g:if test="${flash.message}">
@@ -32,16 +31,16 @@ DOCTYPE html>
 							<g:form url="[resource:modifyInstance, action:'submitModification']" >
 								
 								<label for="userName" class="sr-only">Nombre de Usuario</label>
-								<input style="margin-top: 10px;" type="text" id="userName" name="userName" class="form-control" placeholder="Usuario" value="${session.user.userName}" disabled>
+								<input style="margin-top: 2%;" type="text" id="userName" name="userName" class="form-control" placeholder="Usuario" value="${session.user.userName}" disabled>
 								<label for="password" class="sr-only">Antigua Contraseña</label>
-								<input style="margin-top: 10px;" type="password" id="oldPassword" name="oldPassword" class="form-control" placeholder="Antigua Contraseña"  required autofocus>
+								<input style="margin-top: 2%;" type="password" id="oldPassword" name="oldPassword" class="form-control" placeholder="Antigua Contraseña"  required autofocus>
 								<label for="password" class="sr-only">Nueva Contraseña</label>
-								<input style="margin-top: 10px;" type="password" id="newPassword" name="newPassword" class="form-control" placeholder="Nueva Contraseña"  required>
+								<input style="margin-top: 2%;" type="password" id="newPassword" name="newPassword" class="form-control" placeholder="Nueva Contraseña"  required>
 								<label for="confirmPassword" class="sr-only">Confirmar Nueva Contraseña</label>
-								<input style="margin-top: 10px;" type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirmar Nueva Contraseña"  required>
+								<input style="margin-top: 2%;" type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirmar Nueva Contraseña"  required>
 				
-								<fieldset class="buttons" style="margin-top: 10px;">
-									<button type="submit" class="btn btn-lg btn-primary btn-md">Modificar contraseña</button>
+								<fieldset class="buttons" style="margin-top: 4%;">
+									<button type="submit" class="btn btn-lg btn-primary">Modificar contraseña</button>
 								</fieldset>
 							</g:form>
 						</div>

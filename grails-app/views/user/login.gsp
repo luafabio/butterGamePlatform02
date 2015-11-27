@@ -9,8 +9,11 @@
 			<g:form action="doLogin" method="post">
 				
 				<h2 class="form-signin-heading">Ingresar a tu cuenta </h2>
+				<g:if test="${flash.error}">
+					<p class=" text-danger" style="font-size:20px">${flash.error}</p>
+				</g:if>
 				<g:if test="${flash.message}">
-					<p class=" text-danger" style="font-size:20px">${flash.message}</p>
+					<p class=" text-success" style="font-size:20px">${flash.message}</p>
 				</g:if>
 				<label for="email" class="sr-only">E-mail</label>
 				<input type="email" id="email" name="email" class="form-control" placeholder="Email" value='${user?.email}' required autofocus>

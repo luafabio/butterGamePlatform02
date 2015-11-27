@@ -12,18 +12,18 @@
 		<div class="panel-group" >
 		    <div class="panel panel-default" >
 		    	<div class="panel-heading">
-		    		<h1>Lista de Preguntas</h1>
+		    		<h1>Estadisticas de Usuario</h1>
 				</div>
 				<g:if test="${flash.message}">
 					<div class="message" role="status">${flash.message}</div>
 				</g:if>
 				<div class="panel-body">
 			
-					<h2>User: ${fieldValue(bean: profileInstance, field: "userName")}</h2>
-					<h2>email: ${fieldValue(bean: profileInstance, field: "email")}</h2>
-					<h2>Puntaje Total: ${fieldValue(bean: profileInstance, field: "totalScore")}</h2>
-					<h2>Cantidad de partidas: ${cantidadInstance}</h2>
-					<h2>Promedio: ${eficienciaInstance} puntos</h2>
+					<h4><b>Usuario:</b> ${fieldValue(bean: profileInstance, field: "userName")}</h4>
+					<h4><b>Email</b> ${fieldValue(bean: profileInstance, field: "email")}</h4>
+					<h4><b>Puntaje Total:</b> ${fieldValue(bean: profileInstance, field: "totalScore")}</h4>
+					<h4><b>Cantidad de partidas:</b> ${cantidadInstance}</h4>
+					<h4><b>Promedio:</b> ${eficienciaInstance} puntos</h4>
 					
 					<button style="margin-bottom: 10px;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#ultimasPartidas">Ultimas Partidas</button>
 					<div id="ultimasPartidas" class="collapse">
@@ -35,8 +35,6 @@
 							<table class="table table-hover table-bordered">
 								<thead>
 									<tr>
-									
-										<g:sortableColumn property="ID" title="${message(code: 'question.answer1.label', default: 'ID')}" />
 									
 										<g:sortableColumn property="Fecha" title="${message(code: 'question.answer1.label', default: 'Fecha')}" />
 								

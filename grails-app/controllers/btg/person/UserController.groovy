@@ -84,7 +84,9 @@ class UserController {
 				def currentUser = User.findByUserName(session.user.userName)
 				currentUser.password = modifyInstance.newPassword
 				currentUser.save(flush:true, validate:false)
-				logOut()
+				session.invalidate()
+				flash.message = message(code: 'default.login.passChanged' )
+				redirect(action:'login')
 				
 			}
 		}
@@ -106,7 +108,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
+                flash.message = message(code: 'default.updated.user', args: [message(code: 'User.label', default: 'User'), userInstance.id])
                 redirect userInstance
             }
             '*'{ respond userInstance, [status: OK] }
@@ -154,7 +156,7 @@ class UserController {
 		if (user){
 			redirect(action:'home')
 		}else{
-		flash.message = message(code: 'default.login.error' )
+		flash.error = message(code: 'default.login.error' )
 			redirect(action:'login')
 		}
 	}

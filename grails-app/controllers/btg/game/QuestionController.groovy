@@ -45,13 +45,13 @@ class QuestionController {
 
         questionInstance.save flush:true
 
-//        request.withFormat {
-//            form multipartForm {
-//                //flash.message = message(code: 'default.created.message', args: [message(code: 'question.label', default: 'Pregunta'), questionInstance.id])
+       request.withFormat {
+          form multipartForm {
+               flash.message = message(code: 'default.created.message', args: [message(code: 'question.label', default: 'Pregunta'), questionInstance.id])
                 redirect(controller:'user',action:'home')
-//            }
-//            '*' { respond questionInstance, [status: CREATED] }
-//        }
+          }
+           '*' { respond questionInstance, [status: CREATED] }
+       }
     }
 
     def edit(Question questionInstance) {
@@ -80,7 +80,7 @@ class QuestionController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Question.label', default: 'Question'), questionInstance.id])
+                flash.message = message(code: 'default.updated.question', args: [message(code: 'Question.label', default: 'Pregunta'), questionInstance.id])
                 redirect questionInstance
             }
             '*'{ respond questionInstance, [status: OK] }
@@ -99,7 +99,7 @@ class QuestionController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Question.label', default: 'Question'), questionInstance.id])
+                flash.message = message(code: 'default.deleted.question', args: [message(code: 'Question.label', default: 'Question'), questionInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

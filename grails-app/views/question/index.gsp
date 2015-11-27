@@ -26,13 +26,13 @@
 						<thead>
 							<tr>
 						
-								<g:sortableColumn property="question" title="${message(code: 'question.question.label', default: 'Question')}" />
+								<g:sortableColumn property="question" title="${message(code: 'question.question.label', default: 'Pregunta')}" />
 							
-								<g:sortableColumn property="answer1" title="${message(code: 'question.answer1.label', default: 'Answer1')}" />
+								<g:sortableColumn property="answer1" title="${message(code: 'question.answer1.label', default: 'Respuesta 1')}" />
 						
-								<g:sortableColumn property="answer2" title="${message(code: 'question.answer2.label', default: 'Answer2')}" />
+								<g:sortableColumn property="answer2" title="${message(code: 'question.answer2.label', default: 'Respuesta 2')}" />
 						
-								<g:sortableColumn property="answer3" title="${message(code: 'question.answer3.label', default: 'Answer3')}" />
+								<g:sortableColumn property="answer3" title="${message(code: 'question.answer3.label', default: 'Respuesta 3')}" />
 						
 							</tr>
 						</thead>

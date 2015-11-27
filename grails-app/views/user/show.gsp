@@ -15,7 +15,10 @@
 					<h1>Ver Usuario</h1>
 				</div>
 				<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
+					<div class="col-sm-12">
+						<p class="bg-success text-success" style="margin-top:2%;font-size:20px; padding-top: 1%;
+padding-bottom: 1%;">${flash.message}</p>
+					</div>
 				</g:if>
 				<div class="panel-body">
 					<asset:image src="minion-show.jpg" alt="Butter Game" height="300"/>
@@ -23,59 +26,44 @@
 			
 				<g:if test="${userInstance?.userName}">
 				<h2 class="fieldcontain">
-					<span id="userName-label" class="property-label"><g:message code="user.userName.label" default="User Name" /></span>
+					<span id="userName-label" class="property-label"><g:message code="user.userName.label" default="Usuario" /></span>
 					
 						<span class="property-value" aria-labelledby="userName-label"><g:fieldValue bean="${userInstance}" field="userName"/></span>
 					
 				</h2>
 				</g:if>
-				<ul class="property-list user">
-			
-					<g:if test="${userInstance?.fullName}">
-					<li class="fieldcontain">
-						<span id="fullName-label" class="property-label"><g:message code="user.fullName.label" default="Full Name" /></span>
-						
-							<span class="property-value" aria-labelledby="fullName-label"><g:fieldValue bean="${userInstance}" field="fullName"/></span>
-						
-					</li>
-					</g:if>
+				<div class="col-sm-offset-3 col-sm-6">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label  class="control-label col-sm-5 "for="fullName">Nombre Completo: </label>
+							<div class="col-sm-7">
+								<input  class="form-control" type="text" id="fullName" value="${userInstance?.fullName}" readonly>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-5 " for="email">e-mail: </label>
+							<div class="col-sm-7">
+								<input class="form-control"  type="text" id="email" value="${userInstance?.email}" readonly>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="password">Contraseña: </label>
+							<div class="col-sm-7">
+								<input class="form-control"  type="password" id="password" value="${userInstance?.password}" readonly>
+							</div>
+						</div>
+					</form>
 				
-					<g:if test="${userInstance?.email}">
-					<li class="fieldcontain">
-						<span id="email-label" class="property-label"><g:message code="user.email.label" default="Email" /></span>
-						
-							<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${userInstance}" field="email"/></span>
-						
-					</li>
-					</g:if>
 				
-					<g:if test="${userInstance?.password}">
-					<li class="fieldcontain">
-						<span id="password-label" class="property-label"><g:message code="user.password.label" default="Password" /></span>
-						
-							<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${userInstance}" field="password"/></span>
-						
-					</li>
-					</g:if>
-				
-					<g:if test="${userInstance?.confirmPassword}">
-					<li class="fieldcontain">
-						<span id="confirmPassword-label" class="property-label"><g:message code="user.confirmPassword.label" default="Confirm Password" /></span>
-						
-							<span class="property-value" aria-labelledby="confirmPassword-label"><g:fieldValue bean="${userInstance}" field="confirmPassword"/></span>
-						
-					</li>
-					</g:if>
-			
-					</ul>
 					<g:form url="[resource:userInstance, action:'delete']" method="DELETE">
-						<fieldset class="buttons">
-							<a href="${createLink(action: 'edit',id:"${userInstance.id}")}" class="btn btn-link" role="button">Editar</a>
-							<button type="submit" class="btn btn-danger btn-md" onclick="return confirm('${message(code: '¿Está seguro?', default: '¿Está seguro?')}');">Eliminar Pregunta</button>
+						<fieldset class="buttons center-align">
+							<a href="${createLink(action: 'edit',id:"${userInstance.id}")}" class="btn btn-link btn-lg" role="button">Editar</a>
+							<button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('${message(code: '¿Está seguro?', default: "¿Está seguro que desea eliminar al usuario ${userInstance?.userName}?")}');">Eliminar</button>
 						</fieldset>
 					</g:form>
 				</div>
 			</div>
+		</div>
 		</div>
 	</body>
 </html>

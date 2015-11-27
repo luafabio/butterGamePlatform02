@@ -27,7 +27,7 @@ padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldE
 				</g:hasErrors>
 				<div class="panel-body">
 					<div class="row">
-						<div class="row">
+						
 						<div class="col-md-4 ">	
 							<asset:image src="minion-create.jpg" alt="Butter Game" height="200"/>
 						</div>

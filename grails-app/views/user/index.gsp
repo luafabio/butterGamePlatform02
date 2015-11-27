@@ -22,13 +22,13 @@
 						<thead>
 							<tr>
 					
-								<g:sortableColumn property="userName" title="${message(code: 'user.userName.label', default: 'User Name')}" />
+								<g:sortableColumn property="userName" title="${message(code: 'user.userName.label', default: 'Usuario')}" />
 							
-								<g:sortableColumn property="fullName" title="${message(code: 'user.fullName.label', default: 'Full Name')}" />
+								<g:sortableColumn property="fullName" title="${message(code: 'user.fullName.label', default: 'Nombre Completo')}" />
 							
 								<g:sortableColumn property="email" title="${message(code: 'user.email.label', default: 'Email')}" />
 							
-								<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
+								<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Contraseña')}" />
 							
 							</tr>
 						</thead>

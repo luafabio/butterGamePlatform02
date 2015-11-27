@@ -14,25 +14,57 @@
 					<h1>Editar Pregunta</h1>
 				</div>
 				<g:if test="${flash.message}">
-					<div class="message" role="status">${flash.message}</div>
+					<div class="col-sm-12">
+						<p class="bg-success text-success" style="margin-top:2%;font-size:20px; padding-top: 1%;
+padding-bottom: 1%;">${flash.message}</p>
+					</div>
 				</g:if>
 				<g:hasErrors bean="${questionInstance}">
-					<ul class="errors" role="alert">
+					<div class="col-sm-12">
 						<g:eachError bean="${questionInstance}" var="error">
-						<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+							<p class="bg-danger text-danger" style="margin-top:2%;font-size:20px; padding-top: 1%;
+padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></p>
 						</g:eachError>
-					</ul>
+					</div>
+					
 				</g:hasErrors>
 				<div class="panel-body">
 					<asset:image src="minion-edit.jpg" alt="Butter Game" height="300"/>
+					
 					<g:form url="[resource:questionInstance, action:'update']" method="PUT" >
 						<g:hiddenField name="version" value="${questionInstance?.version}" />
-						<fieldset class="form">
-							<g:render template="form"/>
-						</fieldset>
-						<fieldset class="buttons">
-							<button type="submit" class="btn btn-primary btn-md" >Guardar</button>
-						</fieldset>
+						<div class="col-sm-offset-3 col-sm-6">
+							
+								<div class="form-group">
+									<label class="control-label" for="question">Pregunta: </label>
+  									<div class="col-sm-12">
+  										<textarea class="form-control" rows="2" id="question" name="question">${questionInstance?.question}</textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="control-label col-sm-5 "for="answer1" style="margin-top: 2%;">Respuesta Correcta: </label>
+									<div class="col-sm-7">
+										<input  class="form-control" style="margin-top: 2%;" type="text" id="answer1" name="answer1"value="${questionInstance?.answer1}" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="control-label col-sm-5 "for="answer2" style="margin-top: 2%;">Respuesta Incorrecta 1: </label>
+									<div class="col-sm-7">
+										<input  class="form-control" style="margin-top: 2%;" type="text" id="answer2" name="answer2"value="${questionInstance?.answer2}" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label  class="control-label col-sm-5 "for="answer3" style="margin-top: 2%;">Respuesta Incorrecta 2: </label>
+									<div class="col-sm-7">
+										<input  class="form-control" style="margin-top: 2%;" type="text" id="answer3" name="answer3"value="${questionInstance?.answer3}" >
+									</div>
+								</div>
+							
+							<fieldset class="buttons" style="padding-top:4%">
+								<button type="submit" class="btn btn-primary btn-lg" >Guardar</button>
+							</fieldset>
+						</div>
+						
 					</g:form>
 				</div>
 			</div>
