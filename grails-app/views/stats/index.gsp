@@ -20,7 +20,7 @@
 				<div class="panel-body">
 			
 					<h4><b>Usuario:</b> ${fieldValue(bean: profileInstance, field: "userName")}</h4>
-					<h4><b>Email</b> ${fieldValue(bean: profileInstance, field: "email")}</h4>
+					<h4><b>Email:</b> ${fieldValue(bean: profileInstance, field: "email")}</h4>
 					<h4><b>Puntaje Total:</b> ${fieldValue(bean: profileInstance, field: "totalScore")}</h4>
 					<h4><b>Cantidad de partidas:</b> ${cantidadInstance}</h4>
 					<h4><b>Promedio:</b> ${eficienciaInstance} puntos</h4>
@@ -48,7 +48,6 @@
 									<g:each in="${currentGameInstanceList1}" status="i" var="currentGameInstance1">
 										<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 											
-											<td>${fieldValue(bean: currentGameInstance1, field: "id")}</td>
 											
 											<td><g:formatDate format="yyyy-MM-dd HH:mm:ss" date="${currentGameInstance1.fecha}"/></td>
 											
