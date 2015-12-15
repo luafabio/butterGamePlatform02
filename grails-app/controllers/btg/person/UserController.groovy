@@ -66,7 +66,8 @@ class UserController {
         request.withFormat {
             form multipartForm {
                 //flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect(controller:'user',action:'home')
+				redirect(controller:'user',action:'home')
+				flash.message = "Las contrasenas ingresadas no coinciden"
             }
             '*' { respond userInstance, [status: CREATED] }
         }

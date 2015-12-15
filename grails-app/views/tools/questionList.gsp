@@ -30,9 +30,7 @@
 					<table class="table table-hover table-bordered">
 						<thead>
 							<tr>
-								<g:sortableColumn property="numero" title="${message(code: 'question.answer1.label', default: '#')}" />
-						
-								<g:sortableColumn property="id" title="${message(code: 'question.answer1.label', default: 'ID')}" />
+								<g:if test="${valInstance == 'true'}"><g:sortableColumn property="numero" title="${message(code: 'question.answer1.label', default: '#')}" /></g:if>
 								
 								<g:sortableColumn property="question" title="${message(code: 'question.question.label', default: 'Question')}" />
 							
@@ -43,9 +41,8 @@
 						<tbody>
 							<g:each in="${questionInstanceList}" status="i" var="questionInstance">
 								<tr style="cursor: pointer;" class='clickable-row' data-href="${createLink(controller: 'question', action: 'show', id:"${questionInstance.id}")}">
-									<td>${i+1}</td>
+									<g:if test="${valInstance == 'true'}"><td>${i+1}</td></g:if>
 									
-									<td>${fieldValue(bean: questionInstance, field: "id")}</td>
 									
 									<td>${fieldValue(bean: questionInstance, field: "question")}</td>
 								

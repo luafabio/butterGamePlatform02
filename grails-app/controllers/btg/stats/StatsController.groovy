@@ -3,7 +3,7 @@ package btg.stats
 
 import btg.person.CurrentGame;
 import btg.person.User;
-import btg.game.CurrentQuestion;
+import btg.game.CurrentQuestion1;
 import btg.game.Question;
 
 class StatsController {
