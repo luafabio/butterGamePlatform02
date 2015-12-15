@@ -7,8 +7,8 @@ class UserModify {
 	String confirmPassword
 	
 	static constraints = {
-		oldPassword()
-		newPassword()
-		confirmPassword()
+		oldPassword(blank:false)
+		newPassword(blank:false)
+		confirmPassword(blank:false)
 	}
 }

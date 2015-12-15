@@ -4,13 +4,13 @@ import java.util.List;
 
 import btg.person.CurrentGame;
 import btg.person.User;
-import btg.game.CurrentQuestion;
+import btg.game.CurrentQuestion1;
 import btg.game.Question;
 
 class DisplayQuestionController {
 	
 	public static CurrentGame currentGame1 = new CurrentGame()
-	public static CurrentQuestion currentQuestion1 = new CurrentQuestion()
+	public static CurrentQuestion1 currentQuestion1 = new CurrentQuestion1()
 	public static List<Question> allQuestion
 	
 	def beforeInterceptor = [action:this.&checkUser]
