@@ -11,6 +11,9 @@ DOCTYPE html>
 		    	<div class="panel-heading">
 		    		<h1> Modificar contraseña</h1>
 		     	</div>
+				<g:if test="${flash.error}">
+					<p class=" text-danger" style="font-size:20px">${flash.error}</p>
+				</g:if>
 				<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 				</g:if>

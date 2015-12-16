@@ -63,15 +63,15 @@ class UserController {
 		
 		userInstance.save flush:true
 		
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.user', args: [message(code: 'user.userName', default: ''), userInstance.userName])
-				
+//        request.withFormat {
+//            form multipartForm {
+//                flash.message = message(code: 'default.created.user', args: [message(code: 'user.userName', default: ''), userInstance.userName])
+				flash.message = message(code: 'default.created.user' )
 				redirect(action:'login')
 				
-            }
-            '*' { respond userInstance, [status: CREATED] }
-        }
+//            }
+//            '*' { respond userInstance, [status: CREATED] }
+//        }
     }
 
     def edit(User userInstance) {
@@ -81,15 +81,27 @@ class UserController {
 	def modify = {}
 	
 	def submitModification(UserModify modifyInstance){
-		if (session.user.password.equals(modifyInstance.oldPassword)) {
-			if(modifyInstance.newPassword.equals(modifyInstance.confirmPassword)){
-				def currentUser = User.findByUserName(session.user.userName)
-				currentUser.password = modifyInstance.newPassword
-				currentUser.save(flush:true, validate:false)
-				session.invalidate()
-				flash.message = message(code: 'default.login.passChanged' )
-				redirect(action:'login')
-				
+		
+		if(modifyInstance.newPassword.equals(modifyInstance.oldPassword)){
+			flash.error = message(code: 'default.change.error' )
+			redirect(action:'modify')
+		} else {
+			if (session.user.password.equals(modifyInstance.oldPassword)) {
+				if(modifyInstance.newPassword.equals(modifyInstance.confirmPassword)){
+					def currentUser = User.findByUserName(session.user.userName)
+					currentUser.password = modifyInstance.newPassword
+					currentUser.save(flush:true, validate:false)
+					session.invalidate()
+					flash.message = message(code: 'default.login.passChanged' )
+					redirect(action:'login')
+					
+				} else {
+					flash.error = message(code: 'default.change.error1' )
+					redirect(action:'modify')
+				}
+			} else {
+				flash.error = message(code: 'default.change.error' )
+				redirect(action:'modify')
 			}
 		}
 	}
@@ -158,7 +170,7 @@ class UserController {
 		if (user){
 			redirect(action:'home')
 		}else{
-		flash.error = message(code: 'default.login.error' )
+			flash.error = message(code: 'default.login.error' )
 			redirect(action:'login')
 		}
 	}

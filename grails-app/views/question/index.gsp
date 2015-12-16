@@ -28,11 +28,7 @@
 						
 								<g:sortableColumn property="question" title="${message(code: 'question.question.label', default: 'Pregunta')}" />
 							
-								<g:sortableColumn property="answer1" title="${message(code: 'question.answer1.label', default: 'Respuesta 1')}" />
-						
-								<g:sortableColumn property="answer2" title="${message(code: 'question.answer2.label', default: 'Respuesta 2')}" />
-						
-								<g:sortableColumn property="answer3" title="${message(code: 'question.answer3.label', default: 'Respuesta 3')}" />
+								<g:sortableColumn property="quality" title="${message(code: 'question.answer1.label', default: 'Valoracion')}" />
 						
 							</tr>
 						</thead>
@@ -42,11 +38,8 @@
 								
 									<td>${fieldValue(bean: questionInstance, field: "question")}</td>
 								
-									<td>${fieldValue(bean: questionInstance, field: "answer1")}</td>
+									<td>${fieldValue(bean: questionInstance, field: "quality")}</td>
 								
-									<td>${fieldValue(bean: questionInstance, field: "answer2")}</td>
-								
-									<td>${fieldValue(bean: questionInstance, field: "answer3")}</td>
 								
 								</tr>
 							</g:each>

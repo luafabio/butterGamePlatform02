@@ -16,9 +16,10 @@ class ToolsController {
 	}
 	
 	def valueTable() {
-		def val = 'false'
-		
-		def questionList = Question.listOrderByQuality(order: "desc")
-		render( view: "questionList", model: [questionInstanceList: questionList, valInstance: val])
+//		def val = 'false'
+//		
+//		def questionList = Question.listOrderByQuality(order: "desc")
+//		render( view: "questionList", model: [questionInstanceList: questionList, valInstance: val])
+		redirect(controller:'question',action:'index')
 	}
 }
