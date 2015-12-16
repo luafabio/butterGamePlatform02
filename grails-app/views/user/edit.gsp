@@ -18,14 +18,14 @@
 padding-bottom: 1%;">${flash.message}</p>
 					</div>
 				</g:if>
-				<g:hasErrors bean="${userInstance}">
-					<div class="col-sm-12">
-						<g:eachError bean="${userInstance}" var="error">
-						<p class="bg-danger text-danger" style="margin-top:2%;font-size:20px; padding-top: 1%;
-padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></p>
-						</g:eachError>
-					</div>
-				</g:hasErrors>
+<%--				<g:hasErrors bean="${userInstance}">--%>
+<%--					<div class="col-sm-12">--%>
+<%--						<g:eachError bean="${userInstance}" var="error">--%>
+<%--						<p class="bg-danger text-danger" style="margin-top:2%;font-size:20px; padding-top: 1%;--%>
+<%--padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></p>--%>
+<%--						</g:eachError>--%>
+<%--						</div>--%>
+<%--				</g:hasErrors>--%>
 				<div class="panel-body">
 					<asset:image src="minion-edit.jpg" alt="Butter Game" height="300"/>
 					<g:form url="[resource:userInstance, action:'update']" method="PUT" class="form-horizontal" role="form" >
@@ -53,16 +53,9 @@ padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldE
 								<div class="form-group">
 									<label class="control-label col-md-5 text-right" for="password">Contraseña: </label>
 									<div class="col-md-7">
-										<input class="form-control"  type="password" name="password" id="password" value="${userInstance?.password}" >
+										<input class="form-control" name="password" id="password" value="${userInstance?.password}" >
 									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-5 text-right" for="confirmPassword">Confirmar Contraseña: </label>
-									<div class="col-md-7">
-										<input class="form-control" type="password" id="confirmPassword" name="confirmPassword" value="${userInstance?.password}">
-									</div>
-								</div>
-							
+								</div>							
 							<fieldset class="buttons" style="padding-top:4%">
 								<button type="submit" class="btn btn-primary btn-lg" >Guardar</button>
 							</fieldset>

@@ -75,7 +75,8 @@ class UserController {
     }
 
     def edit(User userInstance) {
-        respond userInstance
+        userInstance.confirmPassword = userInstance.password
+		respond userInstance
     }
 
 	def modify = {}
@@ -113,12 +114,7 @@ class UserController {
             return
         }
 
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'edit'
-            return
-        }
-
-        userInstance.save flush:true
+        userInstance.save(flush:true, validate:false)
 
         request.withFormat {
             form multipartForm {

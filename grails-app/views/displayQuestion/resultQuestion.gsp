@@ -9,10 +9,10 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<g:if test="${currentInstance.statusQues =='true'}">
-		    			<h1 style="color:green;">Pregunta Correcta</h1>
+		    			<h1 style="color:green;">Respuesta Correcta</h1>
 					</g:if>
 					<g:if test="${currentInstance.statusQues =='false'}">
-						<h1 style="color:red;">Pregunta Incorrecta</h1>
+						<h1 style="color:red;">Respuesta Incorrecta</h1>
 					</g:if>
 				</div>
 				<div class="panel-body">
