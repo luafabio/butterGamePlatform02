@@ -15,6 +15,7 @@
 		<div class="panel-group" >
 		    <div class="panel panel-default" >
 		    	<div class="panel-heading">
+		    	
 		    		<g:if test="${valInstance == 'true'}">
 		    			<h1>Ranking de preguntas con mas denuncias</h1>
 		    		</g:if>
@@ -23,8 +24,11 @@
 		    		</g:if>
 				</div>
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
+					<div class="col-sm-12">
+						<p class="bg-success text-success" style="margin-top:2%;font-size:20px; padding-top: 1%;
+padding-bottom: 1%;">${flash.message}</p>
+					</div>
+				</g:if>
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-hover table-bordered">
@@ -32,7 +36,7 @@
 							<tr>
 								<g:if test="${valInstance == 'true'}"><g:sortableColumn property="numero" title="${message(code: 'question.answer1.label', default: '#')}" /></g:if>
 								
-								<g:sortableColumn property="question" title="${message(code: 'question.question.label', default: 'Question')}" />
+								<g:sortableColumn property="question" title="${message(code: 'question.question.label', default: 'Pregunta')}" />
 							
 								<g:if test="${valInstance == 'true'}"><g:sortableColumn property="report" title="${message(code: 'question.answer1.label', default: 'Denuncias')}" /></g:if>
 								<g:if test="${valInstance == 'false'}"><g:sortableColumn property="quality" title="${message(code: 'question.answer1.label', default: 'Valoracion')}" /></g:if>

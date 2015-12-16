@@ -65,9 +65,10 @@ class UserController {
 		
         request.withFormat {
             form multipartForm {
-                //flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-				redirect(controller:'user',action:'home')
-				flash.message = "Las contrasenas ingresadas no coinciden"
+                flash.message = message(code: 'default.created.user', args: [message(code: 'user.userName', default: ''), userInstance.userName])
+				
+				redirect(action:'login')
+				
             }
             '*' { respond userInstance, [status: CREATED] }
         }
@@ -109,7 +110,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.user', args: [message(code: 'User.label', default: 'User'), userInstance.id])
+                flash.message = message(code: 'default.updated.user', args: [message(code: 'User.label', default: 'User'), userInstance.userName])
                 redirect userInstance
             }
             '*'{ respond userInstance, [status: OK] }
@@ -129,7 +130,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
+                flash.message = message(code: 'default.deleted.user', args: [message(code: 'User.label', default: 'User'), userInstance.userName])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

@@ -10,8 +10,7 @@
 		<div class="panel-group">
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
-		    		<p style="text-align:left;float:left;"><g:link action="index"><asset:image src="volver.png" height="55"/></g:link>
-					<h1>Editar Pregunta</h1>
+		    		<h1>Editar Pregunta</h1>
 				</div>
 				<g:if test="${flash.message}">
 					<div class="col-sm-12">
@@ -31,32 +30,34 @@ padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldE
 				<div class="panel-body">
 					<asset:image src="minion-edit.jpg" alt="Butter Game" height="300"/>
 					
-					<g:form url="[resource:questionInstance, action:'update']" method="PUT" >
+					<g:form url="[resource:questionInstance, action:'update']" method="PUT" class="form-horizontal" role="form">
 						<g:hiddenField name="version" value="${questionInstance?.version}" />
-						<div class="col-sm-offset-3 col-sm-6">
+						<div class="col-md-offset-2 col-md-8">
 							
 								<div class="form-group">
 									<label class="control-label" for="question">Pregunta: </label>
-  									<div class="col-sm-12">
+  									<div class="col-md-12">
   										<textarea class="form-control" rows="2" id="question" name="question">${questionInstance?.question}</textarea>
 									</div>
 								</div>
 								<div class="form-group">
-									<label  class="control-label col-sm-5 "for="answer1" style="margin-top: 2%;">Respuesta Correcta: </label>
-									<div class="col-sm-7">
-										<input  class="form-control" style="margin-top: 2%;" type="text" id="answer1" name="answer1"value="${questionInstance?.answer1}" >
+									<label  class="control-label col-md-6 " for="answer1" style="padding-left: 0%;">Respuesta Correcta: </label>
+									<div class="col-md-6">
+										<input  class="form-control"  type="text" id="answer1"  name="answer1"value="${questionInstance?.answer1}" >
 									</div>
 								</div>
+								
 								<div class="form-group">
-									<label  class="control-label col-sm-5 "for="answer2" style="margin-top: 2%;">Respuesta Incorrecta 1: </label>
-									<div class="col-sm-7">
-										<input  class="form-control" style="margin-top: 2%;" type="text" id="answer2" name="answer2"value="${questionInstance?.answer2}" >
+									<label  class="control-label col-md-6 "for="answer2" style="padding-left: 0%;">Respuesta Incorrecta 1: </label>
+									<div class="col-md-6">
+										<input  class="form-control"  type="text" id="answer2"  name="answer2"value="${questionInstance?.answer2}" >
 									</div>
 								</div>
+								
 								<div class="form-group">
-									<label  class="control-label col-sm-5 "for="answer3" style="margin-top: 2%;">Respuesta Incorrecta 2: </label>
-									<div class="col-sm-7">
-										<input  class="form-control" style="margin-top: 2%;" type="text" id="answer3" name="answer3"value="${questionInstance?.answer3}" >
+									<label  class="control-label col-md-6 "for="answer3"style="padding-left: 0%;" >Respuesta Incorrecta 2: </label>
+									<div class="col-md-6">
+										<input  class="form-control"  type="text" id="answer3" name="answer3"value="${questionInstance?.answer3}" >
 									</div>
 								</div>
 							

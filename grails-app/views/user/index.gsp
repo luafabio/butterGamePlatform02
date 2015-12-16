@@ -14,8 +14,11 @@
 		    		<h1>Lista de Usuarios</h1>
 				</div>
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
+					<div class="col-sm-12">
+						<p class="bg-success text-success" style="margin-top:2%;font-size:20px; padding-top: 1%;
+padding-bottom: 1%;">${flash.message}</p>
+					</div>
+				</g:if>
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-hover table-bordered">
