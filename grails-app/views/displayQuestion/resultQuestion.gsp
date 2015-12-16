@@ -34,7 +34,9 @@
 									<a id="4" class="btn btn-primary" href="${createLink(action: 'scoreFour')}">4</a>
 									
 							</div>
+							<p style="margin-top:3%;color:#707070 "> 1 (muy mala) 2 (mala) 3(buena) 4 (muy buena)</p>
 							<a href="${createLink(action: 'denuncia')}"class="btn btn-danger" style="margin-top:15%;">Denunciar</a>
+							<p style="margin-top:3%;color:#CC3300  "> * Solicitar revisión de la pregunta</p>
 						</div>
 					</div>
 					<g:if test="${currentInstance.statusQues =='false'}">

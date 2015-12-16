@@ -142,7 +142,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.user', args: [message(code: 'User.label', default: 'User'), userInstance.userName])
+                flash.message = message(code: 'default.deleted.user', args: [message(code: 'User.label', default: 'User'), userInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

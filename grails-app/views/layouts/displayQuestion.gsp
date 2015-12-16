@@ -33,7 +33,7 @@
 		</nav>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<div class="container text-center">
+				<div class="col-md-12 container text-center">
 					<g:layoutBody/>
 					<a class="btn btn-warning btn-lg pull-right" href="${createLink(uri: '/')}" >Abandonar Partida</a>
 					<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

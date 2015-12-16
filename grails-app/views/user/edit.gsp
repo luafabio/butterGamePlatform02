@@ -54,7 +54,12 @@ padding-bottom: 1%;"<g:if test="${error in org.springframework.validation.FieldE
 									<label class="control-label col-md-5 text-right" for="password">Contraseña: </label>
 									<div class="col-md-7">
 										<input class="form-control"  type="password" name="password" id="password" value="${userInstance?.password}" >
-										<g:if test="${session.user.root}" ><input type="hidden" id="confirmPassword" name="confirmPassword" value="${userInstance?.password}"></g:if> 
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-5 text-right" for="confirmPassword">Confirmar Contraseña: </label>
+									<div class="col-md-7">
+										<input class="form-control" type="password" id="confirmPassword" name="confirmPassword" value="${userInstance?.password}">
 									</div>
 								</div>
 							
