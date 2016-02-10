@@ -12,139 +12,100 @@ class UserControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["name"] = 'someValidName'
     }
 
-    void "Test the index action returns the correct model"() {
+    void "Prueba: la accion 'index' retorna el modelo correcto"() {
 
-        when:"The index action is executed"
+        when:"La accion index es ejecutada"
             controller.index()
 
-        then:"The model is correct"
+        then:"El modelo es el correcto"
             !model.userInstanceList
             model.userInstanceCount == 0
     }
 
-    void "Test the create action returns the correct model"() {
-        when:"The create action is executed"
+    void "Prueba: la accion 'crear' retorna el modelo correcto"() {
+        when:"La accion create es ejecutada"
             controller.create()
 
-        then:"The model is correctly created"
+        then:"El modelo se creo correctamente"
             model.userInstance!= null
     }
 
-    void "Test the save action correctly persists an instance"() {
+    void "Prueba: la accion 'guardar' persiste correctamente"() {
 
-        when:"The save action is executed with an invalid instance"
+        when:"La accion guardar es ejecutada con una instancia invalida"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
             def user = new User()
             user.validate()
             controller.save(user)
 
-        then:"The create view is rendered again with the correct model"
+        then:"La vista de creacion se renderiza nuevamente con el modelo correcto"
             model.userInstance!= null
             view == 'create'
 
-        when:"The save action is executed with a valid instance"
+        when:"La opcion guardar es ejecutada con una instancia valida"
             response.reset()
             populateValidParams(params)
             user = new User(params)
 
             controller.save(user)
 
-        then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/user/show/1'
+        then:"Se redirecciona a la accion home"
+            response.redirectedUrl == '/'
             controller.flash.message != null
-            User.count() == 1
     }
 
-    void "Test that the show action returns the correct model"() {
-        when:"The show action is executed with a null domain"
+    void "Prueba: La accion 'mostrar' retorna el modelo correcto"() {
+        when:"La accion mostrar es ejecutada con argumento null"
             controller.show(null)
 
-        then:"A 404 error is returned"
+        then:"Retorna error 404"
             response.status == 404
 
-        when:"A domain instance is passed to the show action"
+        when:"La accion mostrar es ejecutada con un argumento"
             populateValidParams(params)
             def user = new User(params)
             controller.show(user)
 
-        then:"A model is populated containing the domain instance"
+        then:"Un modelo es cargado conteniendo la instancia del argumento"
             model.userInstance == user
     }
 
-    void "Test that the edit action returns the correct model"() {
-        when:"The edit action is executed with a null domain"
-            controller.edit(null)
-
-        then:"A 404 error is returned"
-            response.status == 404
-
-        when:"A domain instance is passed to the edit action"
+    void "Prueba: La accion 'edit' retorna el modelo correcto"() {
+        when:"La accion 'edit' es ejecutada con un argumento"
             populateValidParams(params)
             def user = new User(params)
             controller.edit(user)
 
-        then:"A model is populated containing the domain instance"
+        then:"Un modelo es cargado conteniendo la instancia del argumento"
             model.userInstance == user
     }
 
-    void "Test the update action performs an update on a valid domain instance"() {
-        when:"Update is called for a domain instance that doesn't exist"
-            request.contentType = FORM_CONTENT_TYPE
-            request.method = 'PUT'
-            controller.update(null)
-
-        then:"A 404 error is returned"
-            response.redirectedUrl == '/user/index'
-            flash.message != null
-
-
-        when:"An invalid domain instance is passed to the update action"
-            response.reset()
-            def user = new User()
-            user.validate()
-            controller.update(user)
-
-        then:"The edit view is rendered again with the invalid instance"
-            view == 'edit'
-            model.userInstance == user
-
-        when:"A valid domain instance is passed to the update action"
-            response.reset()
-            populateValidParams(params)
-            user = new User(params).save(flush: true)
-            controller.update(user)
-
-        then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/user/show/$user.id"
-            flash.message != null
-    }
-
-    void "Test that the delete action deletes an instance if it exists"() {
-        when:"The delete action is called for a null instance"
+    void "La accion 'borrar' borra correctamente una instancia si existe"() {
+        when:"La accion es llamada sin un argumento"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'DELETE'
             controller.delete(null)
 
-        then:"A 404 is returned"
+        then:"Retorna error 404"
             response.redirectedUrl == '/user/index'
             flash.message != null
 
-        when:"A domain instance is created"
+        when:"Se crea una instancia de dominio"
             response.reset()
             populateValidParams(params)
             def user = new User(params).save(flush: true)
 
-        then:"It exists"
-            User.count() == 1
+        then:"Existe"
+			flash.message != null
 
-        when:"The domain instance is passed to the delete action"
+        when:"Se pasa dicha instancia a la accion borrar"
             controller.delete(user)
 
-        then:"The instance is deleted"
+        then:"La instancia se elimina"
             User.count() == 0
             response.redirectedUrl == '/user/index'
             flash.message != null
